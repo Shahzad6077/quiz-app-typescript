@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from "@material-ui/core";
+import { QuizReducerProvider } from "./store";
+
+import theme from "./theme";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QuizReducerProvider>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </QuizReducerProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
