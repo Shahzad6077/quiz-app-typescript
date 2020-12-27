@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, makeStyles, TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
+import { Option } from "./../../Types/fetchTypes";
+
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -14,24 +16,21 @@ const useStyles = makeStyles(() => ({
 }));
 
 type Props = {
-    options: Array<string>;
-    selectedOption: string | undefined;
+    options: Array<Option> | Array<string>;
     label: string;
-    changeHandler(event: React.ChangeEvent<{}>, value: string): void;
+    changeHandler(label: string, value: any): void;
 }
 
-const Dropdown: React.FC<Props> = ({ options, changeHandler, label, selectedOption }) => {
+const Dropdown: React.FC<Props> = ({ options, changeHandler, label }) => {
 
     const classes = useStyles();
 
-    const defaultProps = {
-        options: options,
-    };
+
 
     return (
         <Box className={classes.root}>
             <Autocomplete
-                {...defaultProps}
+
                 autoComplete
                 includeInputInList
                 renderInput={(params) => (
@@ -39,8 +38,22 @@ const Dropdown: React.FC<Props> = ({ options, changeHandler, label, selectedOpti
                 )}
                 disableClearable
                 fullWidth
-                onChange={(event: React.ChangeEvent<{}>, value: string) => changeHandler(event, value)}
-                value={selectedOption}
+                onChange={(event: React.ChangeEvent<{}>, option: string | Option) => {
+                    if (typeof option === 'string') {
+                        changeHandler(label.toLocaleLowerCase(), option)
+                    } else {
+                        changeHandler(label.toLocaleLowerCase(), option.value)
+                    }
+                }}
+                options={options as any}
+
+                getOptionLabel={(option: Option | string) => {
+                    if (typeof option === 'string') {
+                        return option
+                    } else {
+                        return option.label
+                    }
+                }}
 
             />
         </Box>

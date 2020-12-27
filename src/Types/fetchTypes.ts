@@ -1,14 +1,46 @@
-export type Category = {
+export interface Category {
   id: number;
   name: string;
-};
-export type Question = {
+}
+export interface Question {
   question: string;
   options: Array<string>;
-  correctOption: string;
-};
+  correct_answer: string;
+  user_answer: string;
+  id: number;
+}
 export enum Difficulty {
-  EASY = "easy",
-  MEDIUM = "medium",
-  HARD = "hard",
+  Easy = <any>"easy",
+  Medium = <any>"medium",
+  Hard = <any>"hard",
+}
+export interface Option {
+  label: string;
+  value: any;
+}
+export interface GetQuestionParams {
+  amount: number;
+  difficulty: string;
+  categoryId: number;
+  type: string;
+}
+
+export type QuestionApiResult = {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: Array<string>;
+};
+
+export interface QuizContextType {
+  quizCtxState: any;
+  dispatch: React.Dispatch<any>;
+}
+
+export enum QuizCTXActionCases {
+  START_QUIZ,
+  END_QUIZ,
+  SET_QUESTIONS,
 }

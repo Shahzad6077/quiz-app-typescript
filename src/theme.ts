@@ -26,15 +26,23 @@ const themeProvider = createMuiTheme({
       purple: "#A76AE4",
       lightPurple: "#C7A8FC",
     },
-    primary: { main: "#A76AE4", contrastText: "#C7A8FC" },
-    secondary: { main: "#C7A8FC" },
+    primary: { main: "#A76AE4" },
+    secondary: { main: "#C7A8FC", contrastText: "#A76AE4" },
+    text: {
+      secondary: "white",
+    },
   },
 });
 
+themeProvider.typography.h2 = {
+  fontFamily: "kanno, 'Open Sans', sans-serif",
+  color: "white",
+  fontSize: "max(26px, min(6vw, 3.75rem))",
+};
 themeProvider.typography.body1 = {
   fontFamily: "kanno, 'Open Sans', sans-serif",
   color: themeProvider.palette.customColors?.purple,
-  // fontSize: "max(18px, min(1.6vw, 24px))",
+  fontSize: "max(18px, min(1.6vw, 20px))",
 };
 themeProvider.typography.body2 = {
   fontFamily: "kanno, 'Open Sans', sans-serif",
