@@ -11,16 +11,16 @@ const App: React.FC = () => {
 
   return (
     <Box className="App">
-      { quizCTX?.quizCtxState.isQuizStarted ?
-        <QuizView />
-        : <HomeView />
-      }
       <QuestionCard
         id={12}
         question="WHat is your name baby?"
         options={["Ali", "Shahzad", "M", "IZ", "notbok"]}
         user_answer=""
         correct_answer="notbok" />
+      { quizCTX?.quizCtxState.isQuizStarted ?
+        <QuizView />
+        : <HomeView />
+      }
     </Box>
   );
 }
