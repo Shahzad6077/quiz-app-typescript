@@ -39,6 +39,10 @@ themeProvider.typography.h2 = {
   color: "white",
   fontSize: "max(26px, min(6vw, 3.75rem))",
 };
+themeProvider.typography.h3 = {
+  fontFamily: "kanno, 'Open Sans', sans-serif",
+  fontSize: "max(26px, min(6vw, 2.75rem))",
+};
 themeProvider.typography.body1 = {
   fontFamily: "kanno, 'Open Sans', sans-serif",
   color: themeProvider.palette.customColors?.purple,

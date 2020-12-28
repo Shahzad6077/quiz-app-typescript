@@ -23,7 +23,6 @@ const useAnimations = () => {
       ];
     }
 
-    console.log(position);
     const frames = [
       {
         transform: `translate${position}(${tranlateValueFor1stand3rd[0]})`,
@@ -37,7 +36,7 @@ const useAnimations = () => {
       { transform: `translate${position}(0%)`, opacity: 1 },
     ];
     const timingProps = {
-      duration: 1600,
+      duration: 600,
       easing: "cubic-bezier(0.42, 0, 0.58, 1)",
       // easing: "linear",
     };

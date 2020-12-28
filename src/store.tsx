@@ -57,78 +57,7 @@ const testing = [
         "user_answer": "",
         "id": 3
     },
-    {
-        "question": "Which one of these is not a typical European sword design?",
-        "options": [
-            "Scimitar",
-            "Falchion",
-            "Ulfberht",
-            "Flamberge"
-        ],
-        "correct_answer": "Scimitar",
-        "user_answer": "",
-        "id": 4
-    },
-    {
-        "question": "What is Cynophobia the fear of?",
-        "options": [
-            "Flying",
-            "Germs",
-            "Birds",
-            "Dogs"
-        ],
-        "correct_answer": "Dogs",
-        "user_answer": "",
-        "id": 5
-    },
-    {
-        "question": "According to the nursery rhyme, what fruit did Little Jack Horner pull out of his Christmas pie?",
-        "options": [
-            "Plum",
-            "Pear",
-            "Apple",
-            "Peach"
-        ],
-        "correct_answer": "Plum",
-        "user_answer": "",
-        "id": 6
-    },
-    {
-        "question": "Terry Gilliam was an animator that worked with which British comedy group?",
-        "options": [
-            "Monty Python",
-            "The Penny Dreadfuls",
-            "The Goodies&lrm;",
-            "The League of Gentlemen&lrm;"
-        ],
-        "correct_answer": "Monty Python",
-        "user_answer": "",
-        "id": 7
-    },
-    {
-        "question": "How many furlongs are there in a mile?",
-        "options": [
-            "Eight",
-            "Four",
-            "Two",
-            "Six"
-        ],
-        "correct_answer": "Eight",
-        "user_answer": "",
-        "id": 8
-    },
-    {
-        "question": "What airline was the owner of the plane that crashed off the coast of Nova Scotia in 1998?",
-        "options": [
-            "British Airways",
-            "TWA",
-            "Air France",
-            "Swiss Air"
-        ],
-        "correct_answer": "Swiss Air",
-        "user_answer": "",
-        "id": 9
-    }
+
 ];
 const initialState = {
     isQuizStarted: false,

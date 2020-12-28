@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     backgroundColor: theme.palette.customColors?.gray,
 
-    // background:
-    //   "linear-gradient(0deg, rgba(199,168,252,1) 40%, rgba(167,106,228,1) 100%)",
-
     "& > *": {
       zIndex: 2,
     },
@@ -32,12 +29,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   questionWrapper: {
-    border: "1px solid",
     flexGrow: 1,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+  },
+  resultWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "max(16px , min(4vw , 2rem))",
+    width: "min(100%,420px)",
+    fontFamily: "Quicksand",
+    boxSizing: "border-box",
+    overflow: "hidden",
+
+    "& > button": {
+      maxWidth: "80px",
+      width: "100%",
+      margin: "1rem auto",
+    },
   },
 }));
 
