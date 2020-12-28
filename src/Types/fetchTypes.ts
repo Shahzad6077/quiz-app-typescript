@@ -43,4 +43,12 @@ export enum QuizCTXActionCases {
   START_QUIZ,
   END_QUIZ,
   SET_QUESTIONS,
+  SUBMIT_QUESTION_ANSWER,
+}
+export interface QuizCTXState {
+  isQuizStarted: boolean;
+  name: string;
+  categoryId: number;
+  difficulty: string;
+  questionsArray: Array<Question>;
 }

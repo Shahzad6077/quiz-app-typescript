@@ -17,7 +17,8 @@ const App: React.FC = () => {
         options={["Ali", "Shahzad", "M", "IZ", "notbok"]}
         user_answer=""
         correct_answer="notbok" />
-      { quizCTX?.quizCtxState.isQuizStarted ?
+
+      { !quizCTX?.quizCtxState.isQuizStarted ?
         <QuizView />
         : <HomeView />
       }

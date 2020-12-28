@@ -1,0 +1,1 @@
+export { default as FadeBox } from "./Fade/index";

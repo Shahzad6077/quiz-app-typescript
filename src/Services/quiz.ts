@@ -4,7 +4,7 @@ import {
   QuestionApiResult,
   GetQuestionParams,
 } from "./../Types/fetchTypes";
-import { shuffleArray } from "./../Utils";
+import { shuffleArray } from "../Helpers/shuffleArray";
 export const getCategories = async () => {
   try {
     const res = await fetch("https://opentdb.com/api_category.php");
@@ -22,7 +22,7 @@ export const getQuestions = async ({
 }: GetQuestionParams) => {
   try {
     const res = await fetch(
-      `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=${type}&category=${categoryId}`
+      `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=${type}&category=${categoryId}&encode=base64`
     );
     const data = await res.json();
     return data?.results.map(

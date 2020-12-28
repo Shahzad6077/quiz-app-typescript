@@ -1,29 +1,9 @@
-import { Paper, makeStyles, Typography, FormControlLabel, Box } from '@material-ui/core'
+import { Paper, makeStyles, Typography, FormControlLabel, Box, Button } from '@material-ui/core'
 import React from 'react'
 import { Question } from "./../../Types/fetchTypes";
-import { withStyles } from '@material-ui/core/styles';
-import Radio, { RadioProps } from '@material-ui/core/Radio';
-
-
-const CustomRadio = withStyles((theme) => ({
-    root: {
-        color: theme.palette.customColors?.lightPurple,
-        '&$checked': {
-            color: theme.palette.customColors?.purple,
-        },
-        "& > span:nth-child(1) > div  > svg:nth-child(2)  ": {
-            fill: theme.palette.customColors?.lightPurple,
-            transform: ' scale(2.2)'
-        }
-    },
-    checked: {
-        "& > span:nth-child(1) > div  > svg:nth-child(2)  ": {
-            fill: theme.palette.customColors?.purple,
-            transform: ' scale(1)'
-        }
-    },
-}))((props: RadioProps) => <Radio color="default" {...props} />);
-
+import { Alert } from '@material-ui/lab';
+import { decode } from "js-base64"
+import { RadioButton } from "./../";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         marginTop: "1rem"
+    },
+    alertWrapper: {
+        height: "52px",
+        margin: "1rem 0px"
     }
 }));
 
@@ -61,8 +45,9 @@ interface Props extends Question {
 
 }
 const QuestionCard: React.FC<Props> = ({ question, options, correct_answer, user_answer, id }) => {
-    const classess = useStyles();
-    const [selectedValue, setSelectedValue] = React.useState('a');
+    const classes = useStyles();
+    const [selectedValue, setSelectedValue] = React.useState('');
+
 
 
 
@@ -70,17 +55,21 @@ const QuestionCard: React.FC<Props> = ({ question, options, correct_answer, user
         setSelectedValue(event.target.value);
     };
     const checkUserAnswer: boolean = correct_answer === user_answer;
+    const checkUserSubmitAnswer = user_answer.length > 0;
     return (
-        <Paper elevation={3} className={classess.root}>
+        <Paper elevation={3} className={classes.root}>
             <Typography variant="body2">
+                {/* {decode(question)} */}
                 {question}
             </Typography>
-            <Box className={classess.optionWrapper}>
-                {options.map((str: string) => {
+            <Box className={classes.optionWrapper}>
+                {options.map((str: string, i) => {
                     return (
                         <FormControlLabel
+                            disabled={checkUserSubmitAnswer}
+                            key={i}
                             control={
-                                <CustomRadio
+                                <RadioButton
                                     checked={selectedValue === str}
                                     onChange={handleChange}
                                     value={str}
@@ -93,6 +82,25 @@ const QuestionCard: React.FC<Props> = ({ question, options, correct_answer, user
                     )
                 })}
             </Box>
+
+            {checkUserSubmitAnswer ?
+                (<Box className={classes.alertWrapper}>
+                    <Alert
+                        severity={checkUserAnswer ? "success" : "error"}
+                        style={{ fontFamily: "Quicksand" }}>
+                        {checkUserAnswer ? "Correct" : "Wrong"} Answer
+                    </Alert>
+                </Box>) :
+                (<Button
+                    size="small"
+                    variant="contained"
+                    color="primary"
+                    style={{ width: "80px", margin: "auto" }}
+                    disabled={selectedValue.length === 0}
+                >
+                    Submit
+                </Button>)
+            }
         </Paper>
     )
 }
