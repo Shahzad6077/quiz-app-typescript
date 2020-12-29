@@ -74,7 +74,7 @@ const QuestionCard: React.FC<Props> = ({ question, options, correct_answer, user
     };
     const submitHandler = () => {
         onSubmitQuestionAnswer(selectedValue)
-        setTimer(2);
+        setTimer(1);
         setCounterStart(1000)
     }
     const checkUserAnswer: boolean = correct_answer === user_answer;

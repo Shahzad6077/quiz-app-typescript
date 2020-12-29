@@ -71,6 +71,8 @@ const QuizView: React.FC = () => {
     }
     const QUESTION_LENGTH = useMemo(() => questionsArray.length, [questionsArray]);
     const isQustionShow = currentQuestion < QUESTION_LENGTH;
+    const isResultShow = currentQuestion >= QUESTION_LENGTH;
+
     return (
         <Box className={classes.quizWrapper}>
             <QuizViewPath />
@@ -110,7 +112,7 @@ const QuizView: React.FC = () => {
                 }
                 )}
                 {
-                    !isQustionShow &&
+                    !isLoading && isResultShow &&
                     (<Paper elevation={8} className={classes.resultWrapper}>
                         <Typography variant="h3" color="primary" align="center" >Result</Typography>
                         <Typography variant="h5" color="primary" align="center" >{calculateMarks()}/5</Typography>
