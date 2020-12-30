@@ -58,6 +58,6 @@ export const initPushNotifications = () => {
   // [END request_permission]
 };
 
-messaging.onMessage((payload) => {
-  console.log("Message received. ", payload);
-});
+// messaging.onMessage((payload) => {
+//   console.log("Message received. ", payload);
+// });
