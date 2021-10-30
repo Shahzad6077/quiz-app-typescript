@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const quizCTX: QuizContextType | null = useQuizReducer();
 
   useEffect(() => {
-    initPushNotifications()
+    //initPushNotifications()
   }, [])
   return (
     <Box className="App">
