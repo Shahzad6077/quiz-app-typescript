@@ -25,7 +25,7 @@ const resigerTheToken = () => {
     .then((currentToken) => {
       if (currentToken) {
         console.log("currentToken", currentToken);
-        alert(currentToken);
+        //alert(currentToken);
       } else {
         // Show permission request.
         console.log(
